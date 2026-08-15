@@ -1,30 +1,28 @@
 {
-  "id": "/",
+  "id": "./",
   "name": "My Limits",
   "short_name": "My Limits",
   "description": "A personal limits and habit tracking app.",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#f5f6fa",
   "theme_color": "#ffffff",
   "lang": "en",
-
   "categories": [
     "productivity",
     "lifestyle"
   ],
-
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "./icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icon-512.png",
+      "src": "./icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
