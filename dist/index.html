@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#f7f7f5"
+    >
+
+    <meta
+        name="description"
+        content="My Limits - Track your personal limits"
+    >
+
+    <meta
+        name="mobile-web-app-capable"
+        content="yes"
+    >
+
+    <meta
+        name="apple-mobile-web-app-capable"
+        content="yes"
+    >
+
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="default"
+    >
+
+    <meta
+        name="apple-mobile-web-app-title"
+        content="My Limits"
+    >
+
+    <title>My Limits</title>
+
+
+    <!-- =====================================================
+         FAVICON
+    ====================================================== -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="/icon-192.png"
+    >
+
+
+    <!-- =====================================================
+         APPLE TOUCH ICON
+    ====================================================== -->
+
+    <link
+        rel="apple-touch-icon"
+        href="/icon-192.png"
+    >
+
+
+    <!-- =====================================================
+         PWA MANIFEST
+    ====================================================== -->
+
+    <link
+        rel="manifest"
+        href="/manifest.webmanifest"
+    >
+
+
+    <!-- =====================================================
+         STYLES
+    ====================================================== -->
+
+
+  <script type="module" crossorigin src="/assets/index-CvX9q_Hn.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/notifications-CWXX60jh.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-DrYgASJ_.css">
+</head>
+
+
+<body>
+
+<div id="app">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="app-header">
+
+        <div class="brand-area">
+
+            <div class="brand-icon">
+                <img
+                    src="/icon-192.png"
+                    alt="My Limits"
+                >
+            </div>
+
+            <div>
+
+                <h1>
+                    My Limits
+                </h1>
+
+                <p id="appGreeting">
+                    Stay within your rules.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button
+            id="settingsButton"
+            class="icon-button"
+            type="button"
+            aria-label="Settings"
+        >
+            ⚙️
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         CALENDAR
+    ====================================================== -->
+
+    <section class="calendar-section">
+
+        <div class="month-header">
+
+            <button
+                id="previousMonth"
+                class="month-button"
+                type="button"
+                aria-label="Previous month"
+            >
+                ‹
+            </button>
+
+
+            <div class="month-title-area">
+
+                <h2 id="monthYear">
+                    Loading...
+                </h2>
+
+                <span>
+                    Tap a day to record
+                </span>
+
+            </div>
+
+
+            <button
+                id="nextMonth"
+                class="month-button"
+                type="button"
+                aria-label="Next month"
+            >
+                ›
+            </button>
+
+        </div>
+
+
+        <div class="weekdays">
+
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+
+        </div>
+
+
+        <div
+            id="calendarDays"
+            class="calendar-days"
+        ></div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MONTHLY / PERIOD LIMITS
+    ====================================================== -->
+
+    <section class="summary-section">
+
+        <div class="section-heading-row">
+
+            <div>
+
+                <span class="section-kicker">
+                    YOUR RULES
+                </span>
+
+                <h2>
+                    📊 My Limits
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div id="limitsSummary">
+
+            Loading limits...
+
+        </div>
+
+
+        <button
+            id="addLimitButton"
+            class="add-limit-button"
+            type="button"
+        >
+
+            <span class="add-icon">
+                ＋
+            </span>
+
+            <span>
+                Add another limit
+            </span>
+
+        </button>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONSEQUENCES
+    ====================================================== -->
+
+    <section
+        id="consequenceSection"
+        class="consequence-section hidden"
+    >
+
+        <div class="section-heading-row">
+
+            <div>
+
+                <span class="section-kicker">
+                    ACCOUNTABILITY
+                </span>
+
+                <h2>
+                    ⚠️ Consequences
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <p class="consequence-intro">
+
+            You have something pending.
+            Complete it and keep moving forward.
+
+        </p>
+
+
+        <div id="consequenceSummary"></div>
+
+    </section>
+
+
+    <!-- =====================================================
+         HISTORY
+         
+         History stays directly on the home screen because
+         it is part of the tracking experience.
+    ====================================================== -->
+
+    <button
+        id="historyButton"
+        class="history-button"
+        type="button"
+    >
+
+        <span class="history-icon">
+            📚
+        </span>
+
+
+        <span class="history-button-text">
+
+            <strong>
+                History & Archive
+            </strong>
+
+            <small>
+                View your previous months and records
+            </small>
+
+        </span>
+
+
+        <span class="history-arrow">
+            ›
+        </span>
+
+    </button>
+
+
+</div>
+
+
+<!-- =========================================================
+     SETTINGS MODAL
+========================================================= -->
+
+<div
+    id="settingsModal"
+    class="modal hidden"
+>
+
+    <div class="modal-card settings-modal-card">
+
+        <div class="modal-handle"></div>
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="modal-kicker">
+                    APP SETTINGS
+                </span>
+
+                <h2>
+                    ⚙️ Settings
+                </h2>
+
+            </div>
+
+
+            <button
+                id="closeSettingsButton"
+                class="close-button"
+                type="button"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <p class="modal-subtitle">
+            Personalize and manage My Limits.
+        </p>
+
+
+        <!-- =================================================
+             APP SECURITY
+        ================================================== -->
+
+        <button
+            id="openSecuritySettingsButton"
+            class="settings-option"
+            type="button"
+        >
+
+            <span class="settings-option-icon">
+                🔐
+            </span>
+
+
+            <span class="settings-option-content">
+
+                <strong>
+                    App Security
+                </strong>
+
+                <small>
+                    PIN, biometric and App Lock
+                </small>
+
+            </span>
+
+
+            <span class="settings-option-arrow">
+                ›
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             PERSONAL
+        ================================================== -->
+
+        <button
+            id="personalSettingsButton"
+            class="settings-option"
+            type="button"
+        >
+
+            <span class="settings-option-icon">
+                👤
+            </span>
+
+
+            <span class="settings-option-content">
+
+                <strong>
+                    Personal
+                </strong>
+
+                <small>
+                    Your personal preferences
+                </small>
+
+            </span>
+
+
+            <span class="settings-option-arrow">
+                ›
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             APPEARANCE
+        ================================================== -->
+
+        <button
+            id="appearanceSettingsButton"
+            class="settings-option"
+            type="button"
+        >
+
+            <span class="settings-option-icon">
+                🎨
+            </span>
+
+
+            <span class="settings-option-content">
+
+                <strong>
+                    Appearance
+                </strong>
+
+                <small>
+                    Theme and display preferences
+                </small>
+
+            </span>
+
+
+            <span class="settings-option-arrow">
+                ›
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             NOTIFICATIONS
+        ================================================== -->
+
+        <button
+            id="notificationSettingsButton"
+            class="settings-option"
+            type="button"
+        >
+
+            <span class="settings-option-icon">
+                🔔
+            </span>
+
+
+            <span class="settings-option-content">
+
+                <strong>
+                    Notifications
+                </strong>
+
+                <small>
+                    Reminder preferences
+                </small>
+
+            </span>
+
+
+            <span class="settings-option-arrow">
+                ›
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             DATA & PRIVACY
+        ================================================== -->
+
+        <button
+            id="dataSettingsButton"
+            class="settings-option"
+            type="button"
+        >
+
+            <span class="settings-option-icon">
+                💾
+            </span>
+
+
+            <span class="settings-option-content">
+
+                <strong>
+                    Data & Privacy
+                </strong>
+
+                <small>
+                    Export, backup and restore
+                </small>
+
+            </span>
+
+
+            <span class="settings-option-arrow">
+                ›
+            </span>
+
+        </button>
+
+
+        <!-- =================================================
+             ABOUT
+        ================================================== -->
+
+        <button
+            id="aboutSettingsButton"
+            class="settings-option"
+            type="button"
+        >
+
+            <span class="settings-option-icon">
+                ℹ️
+            </span>
+
+
+            <span class="settings-option-content">
+
+                <strong>
+                    About My Limits
+                </strong>
+
+                <small>
+                    Version and app information
+                </small>
+
+            </span>
+
+
+            <span class="settings-option-arrow">
+                ›
+            </span>
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     DATE MODAL
+========================================================= -->
+
+<div
+    id="dateModal"
+    class="modal hidden"
+>
+
+    <div class="modal-card date-modal-card">
+
+        <div class="modal-handle"></div>
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="modal-kicker">
+                    DAILY RECORD
+                </span>
+
+                <h2 id="selectedDateTitle">
+                    Selected Date
+                </h2>
+
+            </div>
+
+
+            <button
+                id="closeDateModal"
+                class="close-button"
+                type="button"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <p class="modal-subtitle">
+            What did you have on this day?
+        </p>
+
+
+        <div id="dateItems"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MANAGE LIMITS MODAL
+========================================================= -->
+
+<div
+    id="manageModal"
+    class="modal hidden"
+>
+
+    <div class="modal-card">
+
+        <div class="modal-handle"></div>
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="modal-kicker">
+                    SETTINGS
+                </span>
+
+                <h2>
+                    ⚙️ Manage Limits
+                </h2>
+
+            </div>
+
+
+            <button
+                id="closeManageModal"
+                class="close-button"
+                type="button"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <p class="modal-subtitle">
+            Change or stop any active limit.
+        </p>
+
+
+        <div id="manageLimitsList"></div>
+
+
+        <button
+            id="manageAddButton"
+            class="add-limit-button"
+            type="button"
+        >
+
+            <span class="add-icon">
+                ＋
+            </span>
+
+            <span>
+                Add another limit
+            </span>
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ADD / EDIT LIMIT MODAL
+========================================================= -->
+
+<div
+    id="limitFormModal"
+    class="modal hidden"
+>
+
+    <div class="modal-card">
+
+        <div class="modal-handle"></div>
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="modal-kicker">
+                    PERSONAL RULE
+                </span>
+
+                <h2 id="limitFormTitle">
+                    Add New Limit
+                </h2>
+
+            </div>
+
+
+            <button
+                id="closeLimitForm"
+                class="close-button"
+                type="button"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <p class="modal-subtitle">
+            Decide how often you allow yourself to have it.
+        </p>
+
+
+        <label class="form-label">
+            Item name
+        </label>
+
+
+        <input
+            id="limitNameInput"
+            class="form-input"
+            type="text"
+            placeholder="Example: Burger"
+            autocomplete="off"
+        >
+
+
+        <label class="form-label">
+            How many times?
+        </label>
+
+
+        <input
+            id="limitValueInput"
+            class="form-input"
+            type="number"
+            min="1"
+            inputmode="numeric"
+            placeholder="Example: 4"
+        >
+
+
+        <label class="form-label">
+            Reset period
+        </label>
+
+
+        <select
+            id="limitPeriodInput"
+            class="form-input"
+        >
+
+            <option value="monthly">
+                Every month
+            </option>
+
+            <option value="weekly">
+                Every week
+            </option>
+
+        </select>
+
+
+        <!-- =================================================
+             NOTIFICATION
+        ================================================== -->
+
+        <div class="notification-option">
+
+            <div class="notification-copy">
+
+                <div class="notification-title">
+                    🔔 Reminder notifications
+                </div>
+
+                <p>
+                    Choose this only if reminders
+                    won't tempt you.
+                </p>
+
+            </div>
+
+
+            <label class="switch">
+
+                <input
+                    id="notificationInput"
+                    type="checkbox"
+                >
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+
+        <button
+            id="saveLimitButton"
+            class="primary-button"
+            type="button"
+        >
+            Save Limit
+        </button>
+
+
+        <button
+            id="stopLimitButton"
+            class="danger-button hidden"
+            type="button"
+        >
+            🗑️ Stop This Limit
+        </button>
+
+
+        <button
+            id="cancelLimitForm"
+            class="secondary-button"
+            type="button"
+        >
+            Cancel
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     FIRST DELETE CONFIRMATION
+========================================================= -->
+
+<div
+    id="deleteRequestModal"
+    class="modal hidden"
+>
+
+    <div class="modal-card">
+
+        <div class="modal-handle"></div>
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="modal-kicker danger-text">
+                    THINK TWICE
+                </span>
+
+                <h2>
+                    🗑️ Stop this limit?
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="warning-box">
+
+            <strong>
+                It won't stop immediately.
+            </strong>
+
+            <p>
+                A 24-hour waiting period will begin.
+                You can change your mind during that time.
+            </p>
+
+        </div>
+
+
+        <p
+            id="deleteRequestName"
+            class="delete-limit-name"
+        ></p>
+
+
+        <button
+            id="startDeleteButton"
+            class="danger-button"
+            type="button"
+        >
+            Yes, start 24-hour waiting period
+        </button>
+
+
+        <button
+            id="cancelDeleteButton"
+            class="secondary-button"
+            type="button"
+        >
+            No, keep it
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     FINAL DELETE CONFIRMATION
+========================================================= -->
+
+<div
+    id="finalDeleteModal"
+    class="modal hidden"
+>
+
+    <div class="modal-card">
+
+        <div class="modal-handle"></div>
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="modal-kicker">
+                    24 HOURS PASSED
+                </span>
+
+                <h2>
+                    ⏳ Think Twice
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="warning-box">
+
+            <strong>
+                Are you still sure?
+            </strong>
+
+            <p>
+                Your old records and history will
+                remain preserved.
+            </p>
+
+        </div>
+
+
+        <p
+            id="finalDeleteName"
+            class="delete-limit-name"
+        ></p>
+
+
+        <button
+            id="finishDeleteButton"
+            class="danger-button"
+            type="button"
+        >
+            Yes, Stop Tracking
+        </button>
+
+
+        <button
+            id="keepLimitButton"
+            class="secondary-button"
+            type="button"
+        >
+            No, Keep It
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     HISTORY MODAL
+========================================================= -->
+
+<div
+    id="historyModal"
+    class="modal hidden"
+>
+
+    <div class="modal-card history-modal-card">
+
+        <div class="modal-handle"></div>
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="modal-kicker">
+                    YOUR JOURNEY
+                </span>
+
+                <h2>
+                    📚 History
+                </h2>
+
+            </div>
+
+
+            <button
+                id="closeHistoryModal"
+                class="close-button"
+                type="button"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <p class="modal-subtitle">
+            Your records stay here even after a limit is stopped.
+        </p>
+
+
+        <div id="historyContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     APP LOCK SCREEN
+     
+     IMPORTANT:
+     Only ONE app lock screen should exist.
+========================================================= -->
+
+<div
+    id="appLockScreen"
+    class="app-lock-screen hidden"
+>
+
+    <div class="app-lock-card">
+
+        <div class="app-lock-icon">
+            🔐
+        </div>
+
+
+        <h2>
+            My Limits
+        </h2>
+
+
+        <p>
+            Enter your PIN to continue
+        </p>
+
+
+        <input
+            id="appLockPin"
+            class="app-lock-input"
+            type="password"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            maxlength="6"
+            placeholder="••••"
+            autocomplete="off"
+        >
+
+
+        <p
+            id="appLockError"
+            class="app-lock-error"
+        ></p>
+
+
+        <button
+            id="unlockAppButton"
+            class="primary-button"
+            type="button"
+        >
+            Unlock
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     MAIN JAVASCRIPT
+========================================================= -->
+
+
+
+</body>
+
+</html>
